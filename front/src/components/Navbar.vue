@@ -2,8 +2,15 @@
   <div class="nav-card">
     <div class="nav-inner">
       <!-- Logo -->
-      <div class="nav-left">
-        <q-img src="/logo.svg" alt="StoreCopilot" width="42px" class="logo" fit="contain" />
+      <div class="nav-left row items-center">
+        <!-- Mobile: botón menú -->
+        <q-btn
+          v-show="$q.screen.lt.md"
+          round dense flat icon="menu"
+          class="menu-fab q-pl-md"
+          @click="$emit('open-drawer')"
+        />
+        <q-img src="/logo.svg" alt="StoreCopilot" width="42px" class="logo" contain />
         <span class="q-pl-md">Store <b>Copilot</b></span>
       </div>
 
@@ -28,7 +35,12 @@
           <q-btn no-caps label="Demo" class="btn-demo" />
         </div>
 
-        <!-- Mobile: botón menú -->
+        <!-- Mobile atajos -->
+        <q-btn
+          v-show="$q.screen.lt.md"
+          round dense label="Login" no-caps class="text-primary" flat
+          @click="$emit('open-drawer')"
+        />
         <q-btn
           v-show="$q.screen.lt.md"
           class="q-ml-md"
