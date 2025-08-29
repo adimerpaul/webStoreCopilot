@@ -29,12 +29,6 @@
         />
       </div>
     </div>
-    <!--          <q-img-->
-    <!--            src="/phone.png"-->
-    <!--            alt="Phone preview"-->
-    <!--            class="phone"-->
-    <!--            fit="contain"-->
-    <!--          />-->
   </div>
 </template>
 
@@ -128,6 +122,84 @@ export default { name: 'HeroSection' }
   .halo{
     position:absolute; right:auto; left:50%; top:58%; transform:translateX(-50%);
     width:320px; height:320px;
+  }
+}
+
+/* ===== Animaciones “copilot style” (solo CSS) ===== */
+
+/* 1) Entrada escalonada del texto */
+.hero-left .hero-title,
+.hero-left .hero-sub,
+.hero-left .btn-cta{
+  opacity: 0;
+  transform: translateY(18px) scale(.985);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
+  animation: fadeUp .7s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-left .hero-title{ animation-delay: .05s; }
+.hero-left .hero-sub{  animation-delay: .18s; }
+.hero-left .btn-cta{   animation-delay: .30s; }
+
+/* 2) Teléfono: entra desde la derecha y luego “flota” */
+.phone{
+  opacity: 0;
+  transform-origin: 50% 85%;
+  will-change: transform, opacity, filter;
+  animation:
+    slideInRight .8s cubic-bezier(.16,1,.3,1) .12s both,
+    bob 7.5s ease-in-out 1.1s infinite;
+  filter: drop-shadow(0 18px 40px rgba(32,22,86,.22));
+}
+
+/* 3) Halo con respiración */
+.halo{
+  animation: haloPulse 4.8s ease-in-out .6s infinite alternate;
+  will-change: opacity, transform, filter;
+}
+
+/* 4) Botón con micro-pop y glow sutil */
+.btn-cta{
+  transform-origin: 50% 50%;
+  animation: fadeUp .7s cubic-bezier(.16,1,.3,1) .3s forwards, glowPulse 3.2s ease-in-out 1.6s infinite;
+}
+.btn-cta:hover{
+  transform: translateY(-1px) scale(1.015);
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(18px) scale(.985); filter: blur(2px); }
+  to  { opacity:1; transform: translateY(0)    scale(1);     filter: blur(0);   }
+}
+@keyframes slideInRight{
+  0%  { opacity:0; transform: translateX(46px) rotate(-1.2deg) scale(.985); filter: blur(1px); }
+  100%{ opacity:1; transform: translateX(0)    rotate(0)       scale(1);    filter: blur(0);  }
+}
+@keyframes bob{
+  0%,100%{ transform: translateY(0) rotate(0); }
+  50%    { transform: translateY(-10px) rotate(.2deg); }
+}
+@keyframes haloPulse{
+  from{ opacity:.55; transform: scale(1);    filter: blur(16px); }
+  to  { opacity:.9;  transform: scale(1.08); filter: blur(20px); }
+}
+@keyframes glowPulse{
+  0%,100%{ box-shadow: 0 14px 26px rgba(108,85,255,.28); }
+  50%    { box-shadow: 0 18px 36px rgba(108,85,255,.38); }
+}
+
+/* ===== Accesibilidad: respeta reduce motion ===== */
+@media (prefers-reduced-motion: reduce){
+  .hero-left .hero-title,
+  .hero-left .hero-sub,
+  .hero-left .btn-cta,
+  .phone,
+  .halo{
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 }
 </style>

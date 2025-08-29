@@ -38,7 +38,6 @@
 
       <div class="ops-grid q-pa-md">
         <div class="ops-left">
-<!--          <div class="chip">{{ currentPanel.chip }}</div>-->
           <h4 class="ops-h4">{{ currentPanel.title }}</h4>
           <p class="ops-p">{{ currentPanel.text }}</p>
 
@@ -88,7 +87,6 @@
 export default {
   name: 'AdaptiveSection',
   props: {
-    // 6 logos como máximo (se ajusta responsivo)
     logos: {
       type: Array,
       default: () => ([
@@ -96,7 +94,6 @@ export default {
         './img4.png', './img5.png', './img6.png'
       ])
     },
-    // Permite sobreescribir los paneles desde el padre si quieres
     panels: {
       type: Array,
       default: null
@@ -105,58 +102,20 @@ export default {
   data () {
     return {
       slide: 0,
-      // Defecto: panel1..panel6 en /public/panels/
       defaultPanels: [
-        {
-          img: '/panel1.png',
-          chip: 'Rentabilidad y Finanzas',
-          title: 'Controla la rentabilidad de tu ecommerce',
-          text: 'Controla la rentabilidad de tu ecommerce con márgenes, costes variables y rendimiento operativo siempre actualizados.'
-        },
-        {
-          img: '/panel2.png',
-          chip: 'Ventas y conversión',
-          title: 'Rendimiento por canal y funnel',
-          text: 'Visualiza tus ingresos, pedidos, ticket medio y funnel de conversión. Detecta tendencias y evalúa la evolución de tus principales canales de venta.'
-        },
-        {
-          img: '/panel3.png',
-          chip: 'Producto',
-          title: 'Métricas por SKU y rotación',
-          text: 'Analiza el rendimiento de tu catálogo con métricas de ventas por SKU, margen y rotación de stock. Identifica productos estrella y los que lastran la rentabilidad.'
-        },
-        {
-          img: '/panel4.png',
-          chip: 'Marketing',
-          title: 'Performance multicanal',
-          text: 'Centraliza el performance de campañas en Meta, Google, TikTok, Pinterest y Klaviyo. Controla las métricas claves para escalar con rentabilidad.'
-        },
-        {
-          img: '/panel5.png',
-          chip: 'Suscripciones',
-          title: 'MRR y churn bajo control',
-          text: 'Controla el MRR, churn y tasas de renovación de tus clientes de suscripción. Analiza la salud de tu base recurrente.'
-        },
-        {
-          img: '/panel6.png',
-          chip: 'Clientes y fidelización',
-          title: 'Retención, recurrencia y LTV',
-          text: 'Mide la retención, recurrencia y LTV de tus clientes. Identifica qué cohortes compran más y cómo impactan tus acciones en la retención.'
-        }
+        { img: '/panel1.png', chip: 'Rentabilidad y Finanzas', title: 'Controla la rentabilidad de tu ecommerce', text: 'Controla la rentabilidad de tu ecommerce con márgenes, costes variables y rendimiento operativo siempre actualizados.' },
+        { img: '/panel2.png', chip: 'Ventas y conversión', title: 'Rendimiento por canal y funnel', text: 'Visualiza tus ingresos, pedidos, ticket medio y funnel de conversión. Detecta tendencias y evalúa la evolución de tus principales canales de venta.' },
+        { img: '/panel3.png', chip: 'Producto', title: 'Métricas por SKU y rotación', text: 'Analiza el rendimiento de tu catálogo con métricas de ventas por SKU, margen y rotación de stock. Identifica productos estrella y los que lastran la rentabilidad.' },
+        { img: '/panel4.png', chip: 'Marketing', title: 'Performance multicanal', text: 'Centraliza el performance de campañas en Meta, Google, TikTok, Pinterest y Klaviyo. Controla las métricas claves para escalar con rentabilidad.' },
+        { img: '/panel5.png', chip: 'Suscripciones', title: 'MRR y churn bajo control', text: 'Controla el MRR, churn y tasas de renovación de tus clientes de suscripción. Analiza la salud de tu base recurrente.' },
+        { img: '/panel6.png', chip: 'Clientes y fidelización', title: 'Retención, recurrencia y LTV', text: 'Mide la retención, recurrencia y LTV de tus clientes. Identifica qué cohortes compran más y cómo impactan tus acciones en la retención.' }
       ]
     }
   },
   computed: {
-    logosToShow () {
-      return this.logos.slice(0, 6)
-    },
-    panelsFinal () {
-      const list = (this.panels && this.panels.length) ? this.panels : this.defaultPanels
-      return list.slice(0, 6)
-    },
-    currentPanel () {
-      return this.panelsFinal[this.slide] || this.panelsFinal[0]
-    }
+    logosToShow () { return this.logos.slice(0, 6) },
+    panelsFinal () { return (this.panels && this.panels.length ? this.panels : this.defaultPanels).slice(0, 6) },
+    currentPanel () { return this.panelsFinal[this.slide] || this.panelsFinal[0] }
   },
   methods: {
     go (i) { this.slide = i }
@@ -286,5 +245,91 @@ export default {
   .title{ font-size: 22px; }
   .ops-title{ font-size: 20px; }
   .subtitle{ font-size: 14px; }
+}
+
+/* ===========================
+   Animaciones “suaves” (solo CSS)
+   =========================== */
+
+/* Entrada escalonada en la banda */
+.title,
+.subtitle{
+  opacity: 0;
+  transform: translateY(14px) scale(.985);
+  filter: blur(1.5px);
+  will-change: transform, opacity, filter;
+  animation: fadeUp .65s cubic-bezier(.16,1,.3,1) forwards;
+}
+.title{ animation-delay: .05s; }
+.subtitle{ animation-delay: .16s; }
+
+/* Logos con estela */
+.logos .q-img{
+  opacity: 0;
+  transform: translateY(10px) scale(.985);
+  filter: blur(1px);
+  animation: fadeUp .5s cubic-bezier(.16,1,.3,1) forwards;
+}
+.logos .q-img:nth-child(1){ animation-delay: .08s; }
+.logos .q-img:nth-child(2){ animation-delay: .12s; }
+.logos .q-img:nth-child(3){ animation-delay: .16s; }
+.logos .q-img:nth-child(4){ animation-delay: .20s; }
+.logos .q-img:nth-child(5){ animation-delay: .24s; }
+.logos .q-img:nth-child(6){ animation-delay: .28s; }
+
+/* Texto del bloque operación */
+.ops-h4, .ops-p, .dots{
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(1px);
+  animation: fadeUp .6s cubic-bezier(.16,1,.3,1) forwards;
+}
+.ops-h4{ animation-delay: .05s; }
+.ops-p{  animation-delay: .15s; }
+.dots{   animation-delay: .25s; }
+
+/* Carrusel: entra desde la derecha y luego respira sutilmente */
+.panel-carousel{
+  opacity: 0;
+  transform: translateX(22px);
+  animation:
+    slideInRight .75s cubic-bezier(.16,1,.3,1) .12s forwards,
+    glowPulse 4.2s ease-in-out 1.1s infinite;
+  will-change: transform, opacity, box-shadow;
+}
+.panel-img{
+  animation: bob 8s ease-in-out 1.2s infinite;
+  will-change: transform;
+}
+
+/* Keyframes compartidos */
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(14px) scale(.985); filter: blur(1.5px); }
+  to  { opacity:1; transform: translateY(0)    scale(1);     filter: blur(0);     }
+}
+@keyframes slideInRight{
+  from{ opacity:0; transform: translateX(22px); }
+  to  { opacity:1; transform: translateX(0);    }
+}
+@keyframes bob{
+  0%,100%{ transform: translateY(0); }
+  50%    { transform: translateY(-8px); }
+}
+@keyframes glowPulse{
+  0%,100%{ box-shadow: 0 18px 48px rgba(24,20,40,.10); }
+  50%    { box-shadow: 0 22px 56px rgba(24,20,40,.14); }
+}
+
+/* Respeta reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .title, .subtitle,
+  .logos .q-img,
+  .ops-h4, .ops-p, .dots,
+  .panel-carousel, .panel-img{
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
 </style>
