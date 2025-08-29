@@ -12,6 +12,8 @@
         <PricingPlans />
         <beyond-sales-section/>
         <FoundersSection />
+        <ComparisonSection />
+        <FaqSection />
       </q-page>
     </q-page-container>
   </q-layout>
@@ -25,10 +27,15 @@ import AdaptiveSection from 'components/AdaptiveSection.vue'
 import PricingPlans from "components/PricingPlans.vue";
 import BeyondSalesSection from "components/BeyondSalesSection.vue";
 import FoundersSection from "components/FoundersSection.vue";
+import ComparisonSection from "components/ComparisonSection.vue";
+import FaqSection from "components/FaqSection.vue";
 
 export default {
   name: 'LoadingPage',
-  components: {FoundersSection, BeyondSalesSection, PricingPlans, Navbar, DrawerMenu, HeroSection, AdaptiveSection },
+  components: {
+    FaqSection,
+    ComparisonSection,
+    FoundersSection, BeyondSalesSection, PricingPlans, Navbar, DrawerMenu, HeroSection, AdaptiveSection },
   data () {
     return {
       navItems: [
