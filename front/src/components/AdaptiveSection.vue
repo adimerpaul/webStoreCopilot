@@ -22,7 +22,7 @@
             :key="'logo-'+i"
             :src="src"
             :alt="'logo-'+(i+1)"
-            width="125px"
+            width="110px"
             contain
             spinner-color="grey-5"
           />
@@ -36,10 +36,9 @@
         Toda tu operación <span class="accent">en un solo panel</span>
       </h3>
 
-      <div class="ops-grid">
-        <!-- Izquierda: texto (sincronizado al slide actual) -->
+      <div class="ops-grid q-pa-md">
         <div class="ops-left">
-          <div class="chip">{{ currentPanel.chip }}</div>
+<!--          <div class="chip">{{ currentPanel.chip }}</div>-->
           <h4 class="ops-h4">{{ currentPanel.title }}</h4>
           <p class="ops-p">{{ currentPanel.text }}</p>
 

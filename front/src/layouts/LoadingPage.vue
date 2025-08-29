@@ -8,7 +8,8 @@
         <hero-section />
 
         <!-- Nueva sección -->
-        <adaptive-section :logos="logos" panel-image="/panel.png" />
+        <adaptive-section :logos="logos" />
+        <PricingPlans />
       </q-page>
     </q-page-container>
   </q-layout>
@@ -19,10 +20,11 @@ import Navbar from 'components/Navbar.vue'
 import DrawerMenu from 'components/DrawerMenu.vue'
 import HeroSection from 'components/HeroSection.vue'
 import AdaptiveSection from 'components/AdaptiveSection.vue'
+import PricingPlans from "components/PricingPlans.vue";
 
 export default {
   name: 'LoadingPage',
-  components: { Navbar, DrawerMenu, HeroSection, AdaptiveSection },
+  components: {PricingPlans, Navbar, DrawerMenu, HeroSection, AdaptiveSection },
   data () {
     return {
       navItems: [
