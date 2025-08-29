@@ -20,7 +20,7 @@
           clickable
           v-ripple
           :to="item.to"
-          @click="drawer = false"
+          @click="close()"
         >
           <q-item-section>{{ item.label }}</q-item-section>
         </q-item>
@@ -36,19 +36,20 @@
   </q-drawer>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const drawer = ref(false)
-const props = defineProps({
-  navItems: {
-    type: Array,
-    default: () => ([])
+<script>
+export default {
+  name: 'DrawerMenu',
+  props: {
+    navItems: { type: Array, default: () => [] }
+  },
+  data () {
+    return { drawer: false }
+  },
+  methods: {
+    open () { this.drawer = true },
+    close () { this.drawer = false }
   }
-})
-
-// expone el estado para controlarlo desde el padre
-defineExpose({ drawer })
+}
 </script>
 
 <style scoped>

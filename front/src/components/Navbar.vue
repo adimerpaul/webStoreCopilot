@@ -31,10 +31,10 @@
         <!-- Mobile: botón menú -->
         <q-btn
           v-show="$q.screen.lt.md"
-          round dense
+          class="q-ml-md"
           color="dark"
-          icon="menu"
-          class="menu-fab"
+          label="Demo"
+          no-caps
           @click="$emit('open-drawer')"
         />
       </div>
@@ -42,18 +42,13 @@
   </div>
 </template>
 
-<script setup>
-import { useQuasar } from 'quasar'
-// import { navItems } from '@/constants/navigation'
-
-const $q = useQuasar()
-// props
-const props = defineProps({
-  navItems: {
-    type: Array,
-    default: () => ([])
+<script>
+export default {
+  name: 'Navbar',
+  props: {
+    navItems: { type: Array, default: () => [] }
   }
-})
+}
 </script>
 
 <style scoped>

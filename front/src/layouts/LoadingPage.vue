@@ -5,64 +5,35 @@
       <q-page class="hero-bg">
         <Navbar @open-drawer="openDrawer" :nav-items="navItems" />
 
-        <div class="hero-container">
-          <!-- Texto -->
-          <div class="hero-left">
-            <h1 class="hero-title">
-              Datos para el control<br />
-              total del <span class="highlight">crecimiento de tu</span><br />
-              <span class="highlight">ecommerce</span>
-            </h1>
-
-            <p class="hero-sub">
-              Todas tus métricas clave en un solo lugar.<br />
-              StoreCopilot no es un dashboard más:
-              <b> es el copiloto de datos para ecommerce, hecho a tu medida.</b>
-            </p>
-
-            <q-btn class="btn-cta" no-caps label="Quiero ver una Demo" unelevated />
-          </div>
-
-          <!-- Teléfono -->
-          <div class="hero-right">
-            <div class="phone-wrap">
-              <div class="halo"></div>
-              <q-img
-                src="/phone.png"
-                alt="Phone preview"
-                class="phone"
-                fit="contain"
-              />
-            </div>
-          </div>
-<!--          <q-img-->
-<!--            src="/phone.png"-->
-<!--            alt="Phone preview"-->
-<!--            class="phone"-->
-<!--            fit="contain"-->
-<!--          />-->
-        </div>
+        <HeroSection />
       </q-page>
     </q-page-container>
   </q-layout>
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script>
 import Navbar from 'components/Navbar.vue'
 import DrawerMenu from 'components/DrawerMenu.vue'
+import HeroSection from 'components/HeroSection.vue'
 
-const drawerMenu = ref(null)
-const navItems = [
-  { label: 'Cómo funciona', to: '/funciona' },
-  { label: 'Beneficios', to: '/beneficios' },
-  { label: 'Roadmap', to: '/roadmap' },
-  { label: 'Integraciones', to: '/integraciones' },
-  { label: 'Nosotros', to: '/nosotros' },
-  { label: 'FAQs', to: '/faqs' }
-]
-function openDrawer () {
-  if (drawerMenu.value) drawerMenu.value.drawer = true
+export default {
+  name: 'LoadingPage',
+  components: { Navbar, DrawerMenu, HeroSection },
+  data () {
+    return {
+      navItems: [
+        { label: 'Cómo funciona', to: '/funciona' },
+        { label: 'Beneficios', to: '/beneficios' },
+        { label: 'Roadmap', to: '/roadmap' },
+        { label: 'Integraciones', to: '/integraciones' },
+        { label: 'Nosotros', to: '/nosotros' },
+        { label: 'FAQs', to: '/faqs' }
+      ]
+    }
+  },
+  methods: {
+    openDrawer () { this.$refs.drawerMenu && this.$refs.drawerMenu.open() }
+  }
 }
 </script>
 
