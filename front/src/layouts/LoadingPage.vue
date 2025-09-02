@@ -63,8 +63,8 @@ export default {
 .hero-bg{
   min-height:100dvh; width:100%; position:relative; overflow:hidden;
   background:
-    radial-gradient(1100px 700px at 18% 0%, rgba(160,130,255,.34), rgba(255,255,255,0) 58%),
-    radial-gradient(850px 650px at 75% 62%, rgba(142,114,255,.35), rgba(255,255,255,0) 62%),
+    radial-gradient(1200px 1200px at 18% 0%, rgba(160,130,255,.34), rgba(255,255,255,0) 70%),
+    radial-gradient(1200px 1200px at 75% 62%, rgba(142,114,255,.35), rgba(255,255,255,0) 62%),
     linear-gradient(180deg,#ffffff 0%, #f7f4ff 42%, #ece4ff 100%);
 }
 </style>

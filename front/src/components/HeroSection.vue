@@ -11,7 +11,7 @@
       <p class="hero-sub">
         Todas tus métricas clave en un solo lugar.<br />
         StoreCopilot no es un dashboard más:
-        <b> es el copiloto de datos para ecommerce, hecho a tu medida.</b>
+        <b> es el copiloto <br> de datos para ecommerce, hecho a tu medida.</b>
       </p>
 
       <q-btn class="btn-cta" no-caps label="Quiero ver una Demo" unelevated />
@@ -76,7 +76,7 @@ export default { name: 'HeroSection' }
 }
 .btn-cta{
   background: #6c55ff; color: #fff; border-radius: 14px; padding: 14px 22px;
-  font-weight: 800; box-shadow: 0 14px 26px rgba(108,85,255,.28);
+  box-shadow: 0 14px 26px rgba(108,85,255,.28);
   transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
 }
 .btn-cta:hover{

@@ -7,7 +7,7 @@
 
         <!-- Título y bajada -->
         <h2 class="title">
-          Un dashboard que se adapta a tu <span class="accent">negocio</span>, no al revés
+          Un dashboard que se adapta a tu negocio, <span class="accent">no al revés</span>
         </h2>
         <p class="subtitle">
           StoreCopilot no es un SaaS que solo muestra gráficos. Es un copiloto que se adapta a tu negocio:
@@ -36,37 +36,41 @@
         Toda tu operación <span class="accent">en un solo panel</span>
       </h3>
 
-      <div class="ops-grid q-pa-md">
+      <div class="ops-grid q-pa-lg">
         <div class="ops-left">
           <h4 class="ops-h4">{{ currentPanel.title }}</h4>
           <p class="ops-p">{{ currentPanel.text }}</p>
 
           <!-- Paginación decorativa (puntos) -->
+<!--          <div class="dots">-->
+<!--            <span-->
+<!--              v-for="(p, i) in panelsFinal"-->
+<!--              :key="'dot-'+i"-->
+<!--              class="dot"-->
+<!--              :class="{ active: slide === i }"-->
+<!--              @click="go(i)"-->
+<!--            />-->
+<!--          </div>-->
+<!--          fechas en ve de putnos-->
+
           <div class="dots">
-            <span
-              v-for="(p, i) in panelsFinal"
-              :key="'dot-'+i"
-              class="dot"
-              :class="{ active: slide === i }"
-              @click="go(i)"
-            />
+<!--            <q-btn atras-->
+            <q-btn outline round dense icon="chevron_left" @click="go(slide > 0 ? slide - 1 : panelsFinal.length - 1)" />
+            <q-btn outline round dense icon="chevron_right" @click="go(slide < panelsFinal.length - 1 ? slide + 1 : 0)" />
           </div>
         </div>
 
         <!-- Derecha: carrusel de screenshots -->
-        <div class="ops-right">
+        <div>
           <q-carousel
             v-model="slide"
             animated
             swipeable
             infinite
-            transition-prev="slide-right"
-            transition-next="slide-left"
             height="360px"
             arrows
             navigation
-            control-color="primary"
-            class="panel-carousel"
+            style="background: transparent;"
           >
             <q-carousel-slide
               v-for="(p, i) in panelsFinal"
@@ -149,7 +153,7 @@ export default {
   font-size: 28px;
   line-height: 1.2;
   font-weight: 800;
-  color: #2a2940;
+  color: #6f5bff;
 }
 .subtitle{
   margin: 0 auto 26px;
@@ -159,7 +163,7 @@ export default {
   color: #3a3952;
   opacity: .95;
 }
-.accent{ color: #6f5bff; }
+.accent{ color: #3a3952; }
 
 /* Logos */
 .logos{
@@ -202,7 +206,6 @@ export default {
   font-size: 20px;
   margin: 0 0 8px 0;
   color: #2a2940;
-  font-weight: 800;
 }
 .ops-p{
   color: #3a3952;
