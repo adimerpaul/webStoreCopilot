@@ -1,7 +1,7 @@
 <template>
   <div class="hero-container">
     <!-- Texto -->
-    <div class="hero-left" style="padding: 0 70px 0 70px">
+    <div class="hero-left" :style="$q.screen.lt.sm ? { padding: '0 20px' } : { padding: '0 70px' }">
       <h1 class="hero-title">
         Datos para el control<br />
         total del <span class="highlight">crecimiento de tu</span><br />

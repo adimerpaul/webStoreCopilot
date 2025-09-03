@@ -37,7 +37,7 @@
       </h3>
 
       <div class="ops-grid q-pa-lg">
-        <div class="ops-left">
+        <div class="ops-left" :style="$q.screen.lt.sm ? { padding: '0 30px' } : { padding: '0 100px' }">
           <h4 class="ops-h4">
             {{ currentPanel.title }}
           </h4>
@@ -153,7 +153,7 @@ export default {
   color: #3a3952;
   opacity: .95;
 }
-.accent{ color: #3a3952; }
+.accent{ color: #6f5bff; }
 
 /* Logos */
 .logos{

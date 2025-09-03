@@ -6,69 +6,69 @@
 
       <!-- ===== Desktop / Tablet (dos tarjetas) ===== -->
       <div class="cards " v-show="$q.screen.gt.sm">
-        <!-- Core Plan -->
-        <q-card class="plan-card" style="width: 350px;">
-          <div class="plan-header">
-            <div class="plan-name text-center">Core Plan</div>
+        <div style="justify-self:end;">
+          <q-card class="plan-card" style="width: 350px;">
+            <div class="plan-header">
+              <div class="plan-name text-center">Core Plan</div>
 
-            <div class="price-row text-center">
-              <span class="price">{{ priceCoreVal }}</span>
-              <span class="currency">€</span>
-              <span class="per">/mes*</span>
+              <div style="text-align: center;">
+                <span class="price">{{ priceCoreVal }}</span>
+                <span class="currency">€</span>
+                <span class="per">/mes*</span>
+              </div>
             </div>
-          </div>
 
-          <div class="plan-body">
-            <div class="plan-sub">El stack esencial de datos para tu ecommerce</div>
-
-            <ul class="features">
-              <li><q-icon name="check_circle" class="ok" /> Business Intelligence: panel de finanzas, ventas y marketing centralizado.</li>
+            <div class="plan-body" >
+              <div class="plan-sub" style="height: 35px">El stack esencial de datos para tu ecommerce</div>
+            <ul class="features" style="height: 210px">
+              <li><q-icon name="check_circle" class="ok" color="red" />Business Intelligence: panel de finanzas, ventas y marketing centralizado.</li>
               <li><q-icon name="check_circle" class="ok" /> Insights de producto: productos estrella, rotación, márgenes.</li>
               <li><q-icon name="check_circle" class="ok" /> Ads Performance: ROAS objetivo, CPAs, resultados de campañas.</li>
             </ul>
 
-            <q-separator class="soft-divider q-my-md" />
+              <q-separator class="soft-divider q-my-md" />
 
-            <div class="footnote">
-              *El coste se adapta al tamaño y necesidades de tu negocio. La tarifa base es de {{ priceCoreVal }}€ y puede variar en función del número de órdenes mensuales y de tiendas que conectemos.
+              <div class="footnote" style="height: 45px">
+                *El coste se adapta al tamaño y necesidades de tu negocio. La tarifa base es de {{ priceCoreVal }}€ y puede variar en función del número de órdenes mensuales y de tiendas que conectemos.
+              </div>
             </div>
-          </div>
 
-          <div class="plan-cta">
-            <q-btn class="btn-cta" no-caps label="Reserva tu demo" @click="onDemo('core')" />
-          </div>
-        </q-card>
-
-        <!-- Custom Plan -->
-        <q-card class="plan-card" style="width: 350px;">
-          <div class="plan-header">
-            <div class="plan-name text-center">Custom Plan</div>
-
-            <div class="adhoc-row">
-              <span class="adhoc text-center">AD HOC*</span>
+            <div class="plan-cta">
+              <q-btn class="btn-cta" no-caps label="Reserva tu demo" @click="onDemo('core')" />
             </div>
-          </div>
+          </q-card>
+        </div>
+        <div>
+          <q-card class="plan-card" style="width: 350px;">
+            <div class="plan-header">
+              <div class="plan-name text-center">Custom Plan</div>
 
-          <div class="plan-body">
-            <div class="plan-sub">La herramienta hecha a tu medida</div>
-
-            <ul class="features">
-              <li><q-icon name="check_circle" class="ok" /> Integraciones personalizadas: conectamos tus sistemas o herramientas clave (ERP, logística, etc.).</li>
-              <li><q-icon name="check_circle" class="ok" /> Reportes adaptados a tu negocio: métricas diseñadas para tu casuística y la de tus equipos.</li>
-              <li><q-icon name="check_circle" class="ok" /> No es una plataforma genérica: es tu copiloto de datos personalizado para tomar decisiones con total claridad.</li>
-            </ul>
-
-            <q-separator class="soft-divider q-my-md" />
-
-            <div class="footnote">
-              *El coste se definirá en función del número de integraciones adicionales, número de tiendas y volumen de órdenes.
+              <div style="text-align: center;">
+                <span class="adhoc text-center">AD HOC*</span>
+              </div>
             </div>
-          </div>
 
-          <div class="plan-cta">
-            <q-btn class="btn-cta" no-caps label="Reserva tu demo" @click="onDemo('custom')" />
-          </div>
-        </q-card>
+            <div class="plan-body">
+              <div class="plan-sub"  style="height: 35px">La herramienta hecha a tu medida</div>
+
+              <ul class="features" style="height: 210px">
+                <li><q-icon name="check_circle" class="ok" /> Integraciones personalizadas: conectamos tus sistemas o herramientas clave (ERP, logística, etc.).</li>
+                <li><q-icon name="check_circle" class="ok" /> Reportes adaptados a tu negocio: métricas diseñadas para tu casuística y la de tus equipos.</li>
+                <li><q-icon name="check_circle" class="ok" /> No es una plataforma genérica: es tu copiloto de datos personalizado para tomar decisiones con total claridad.</li>
+              </ul>
+
+              <q-separator class="soft-divider q-my-md" />
+
+              <div class="footnote" >
+                *El coste se definirá en función del número de integraciones adicionales, número de tiendas y volumen de órdenes.
+              </div>
+            </div>
+
+            <div class="plan-cta">
+              <q-btn class="btn-cta" no-caps label="Reserva tu demo" @click="onDemo('custom')" />
+            </div>
+          </q-card>
+        </div>
       </div>
 
       <!-- ===== Mobile (acordeón como en el Figma) ===== -->
@@ -303,20 +303,19 @@ export default {
   color:#2a2940; font-size:14px; margin: 10px 0;
 }
 .ok{
-  --ok-bg: linear-gradient(180deg,#6e59ff,#7f6bff);
+  --ok-bg: #E7E4FA;
   position: relative;
   font-size: 0;                 /* ocultar el ícono material */
   width: 18px; height: 18px;    /* pastilla redonda */
   border-radius: 50%;
   background: var(--ok-bg);
-  box-shadow: 0 4px 10px rgba(108,85,255,.30);
   margin-top: 2px;
 }
 .ok::after{
   content: '';
   position: absolute; inset: 0;
   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>') center/70% no-repeat;
-  background: #fff;
+  background: #6B56E3;
 }
 
 /* Divisor fino */
@@ -341,13 +340,10 @@ export default {
   position: relative;
   width: 100%;
   background: linear-gradient(180deg, #6c55ff, #5a48e6);
-  color:#fff; font-weight:800; border-radius: 14px; padding: 13px 18px;
-  box-shadow: 0 12px 28px rgba(108,85,255,.26);
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  color:#fff;; border-radius: 14px; padding: 13px 18px;
 }
 .btn-cta:hover{
   transform: translateY(-1px);
-  box-shadow: 0 18px 40px rgba(108,85,255,.33);
   filter: brightness(1.02);
 }
 /* sombra elíptica por debajo del botón (como “pastilla”) */
