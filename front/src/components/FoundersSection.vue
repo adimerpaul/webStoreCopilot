@@ -25,7 +25,7 @@
     <div class="container why-grid">
       <!-- Izquierda: imagen del gráfico (en desktop) -->
       <div class="why-left">
-        <div class="chart-card">
+        <div class="chart-card" style="background: transparent;">
           <q-img :src="chartImage" alt="Gráfico" contain class="chart-img" />
         </div>
       </div>
@@ -39,18 +39,22 @@
         <p class="why-p">
           En <b>Copilot Agency</b>, llevamos años <b>ayudando a ecommerce crecer.</b>
         </p>
+        <br>
         <p class="why-p">
           Pero también gestionamos nuestros propios ecommerce.
         </p>
+        <br>
         <p class="why-p">
           Y ahí aprendimos una lección clave:
           <b>facturar más no siempre significa ser más rentable.</b>
         </p>
+        <br>
         <p class="why-p">
           Hemos visto muchos clientes con datos por todas partes (Shopify, Ads, Klaviyo, Excel…)
           pero sin una respuesta clara a la pregunta más importante:
           <b>“¿Estamos creciendo de forma rentable?”</b>
         </p>
+        <br>
         <p class="why-p">
           Por eso nació <b>Store Copilot</b>: no como otro dashboard más, sino como
           <b>la herramienta que nos habría encantado tener desde el primer día.</b>
@@ -123,16 +127,12 @@ export default {
 
 .chart-card{
   border-radius: 16px;
-  background: #fff;
-  border: 1px solid rgba(123,102,255,.14);
-  box-shadow: 0 18px 40px rgba(24,20,40,.08), 0 2px 8px rgba(24,20,40,.06);
-  overflow: hidden;
 }
 .chart-img{ width: 100%; height: 100%; display:block; }
 
 .why-title{
   margin: 0 0 10px 0;
-  font-size: 26px;
+  font-size: 30px;
   line-height: 1.18;
   font-weight: 900;
   color: #23233a;

@@ -14,7 +14,7 @@
           <thead>
           <tr class="head">
             <th class="left-th">Funcionalidad</th>
-            <th class="mid-col mid-th">Store Copilot</th>
+            <th class="mid-col mid-th" style="color: white">Store Copilot</th>
             <th class="right-th">Dashboard genérico</th>
           </tr>
           </thead>
@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
 .compare-wrapper{
-  background: linear-gradient(180deg,#f4f2ff 0%, #ffffff 36%);
+  background: #f4f2ff;
   border-top: 1px solid rgba(123,102,255,.12);
   padding: 56px 0;
 }

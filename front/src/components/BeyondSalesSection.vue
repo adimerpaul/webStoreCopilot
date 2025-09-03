@@ -13,7 +13,7 @@
       <!-- ===== Desktop / Tablet ===== -->
       <div class="grid" v-show="$q.screen.gt.sm">
         <!-- Izquierda: tarjetas features -->
-        <div class="left q-pa-md">
+        <div class="left">
           <div
             v-for="(f, i) in features"
             :key="f.key"
@@ -21,10 +21,10 @@
             :class="{ active: i === selected }"
             @click="selected = i"
           >
-            <div class="icon-wrap">
-              <q-icon :name="f.icon" />
-            </div>
             <div class="feature-text">
+              <div class="icon-wrap">
+                <q-icon :name="f.icon" />
+              </div>
               <div class="feature-title">{{ f.title }}</div>
               <div class="feature-sub">{{ f.sub }}</div>
             </div>
@@ -32,73 +32,8 @@
         </div>
 
         <!-- Derecha: tarjetas de configuración (como en Figma) -->
-        <div class="right">
+        <div class="right" style="background: transparent;">
           <q-img src="sales_cogs.png" alt="COGS y márgenes" />
-          <!-- COGS -->
-<!--          <q-card class="conf-card q-mb-lg">-->
-<!--&lt;!&ndash;            <q-card-section>&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="conf-title">Costes de los bienes vendidos (COGS)</div>&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="conf-sub">&ndash;&gt;-->
-<!--&lt;!&ndash;                Actualiza el precio de tus COGS a través de un feed XML. Si tus precios de COGS&ndash;&gt;-->
-<!--&lt;!&ndash;                están almacenados en una plataforma de terceros en lugar de Shopify, puedes subir aquí&ndash;&gt;-->
-<!--&lt;!&ndash;                un feed XML que contenga esos datos o cargar un .csv con la plantilla.&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;              <div class="row q-col-gutter-md q-mt-sm">&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="col-12 col-md-auto">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <q-btn color="primary" unelevated icon="download" label="Descargar Plantilla" />&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="col-12 col-md-auto">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <q-btn flat outline color="primary" icon="attach_file" label="Adjuntar doc en formato .csv" />&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </q-card-section>&ndash;&gt;-->
-<!--          </q-card>-->
-
-          <!-- Costes de transacción (fees/pasarelas) -->
-<!--          <q-card class="conf-card">-->
-<!--            <q-card-section>-->
-<!--              <div class="conf-title">Costes de transacción</div>-->
-<!--              <div class="conf-sub">-->
-<!--                Comisiones que pagas por cada venta procesada a través de tu tienda online o plataforma de pago.-->
-<!--                Pueden tener un % sobre el valor del pedido, un fijo, o una combinación de ambos.-->
-<!--              </div>-->
-
-<!--              <div class="method-grid">-->
-<!--                <div class="row header q-pb-sm">-->
-<!--                  <div class="col-5 label">Método</div>-->
-<!--                  <div class="col-3 label">Porcentaje</div>-->
-<!--                  <div class="col-4 label">Comisión fija (€)</div>-->
-<!--                </div>-->
-
-<!--                <div-->
-<!--                  class="row item"-->
-<!--                  v-for="(m, idx) in paymentMethods"-->
-<!--                  :key="m.key"-->
-<!--                >-->
-<!--                  <div class="col-5 item-name">{{ m.name }}</div>-->
-<!--                  <div class="col-3">-->
-<!--                    <q-input-->
-<!--                      dense outlined type="number" min="0" step="0.1"-->
-<!--                      v-model.number="m.percent"-->
-<!--                      suffix="%"-->
-<!--                    />-->
-<!--                  </div>-->
-<!--                  <div class="col-4">-->
-<!--                    <q-input-->
-<!--                      dense outlined type="number" min="0" step="0.1"-->
-<!--                      v-model.number="m.fixed"-->
-<!--                      prefix="€"-->
-<!--                    />-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-
-<!--              <div class="q-mt-md">-->
-<!--                <q-btn color="primary" unelevated label="Guardar" />-->
-<!--              </div>-->
-<!--            </q-card-section>-->
-<!--          </q-card>-->
         </div>
       </div>
 
@@ -130,54 +65,6 @@
             </div>
           </q-carousel-slide>
         </q-carousel>
-
-        <!-- Reutilizamos las mismas tarjetas de la derecha, apiladas -->
-<!--        <q-card class="conf-card q-mb-lg">-->
-<!--          <q-card-section>-->
-<!--            <div class="conf-title">Costes de los bienes vendidos (COGS)</div>-->
-<!--            <div class="conf-sub">-->
-<!--              Actualiza el precio de tus COGS a través de un feed XML. Si tus precios de COGS-->
-<!--              están almacenados en una plataforma de terceros en lugar de Shopify, puedes subir aquí-->
-<!--              un feed XML que contenga esos datos o cargar un .csv con la plantilla.-->
-<!--            </div>-->
-
-<!--            <div class="row q-col-gutter-md q-mt-sm">-->
-<!--              <div class="col-12">-->
-<!--                <q-btn color="primary" unelevated icon="download" label="Descargar Plantilla" class="full-width" />-->
-<!--              </div>-->
-<!--              <div class="col-12">-->
-<!--                <q-btn flat outline color="primary" icon="attach_file" label="Adjuntar doc en formato .csv" class="full-width" />-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </q-card-section>-->
-<!--        </q-card>-->
-
-<!--        <q-card class="conf-card">-->
-<!--          <q-card-section>-->
-<!--            <div class="conf-title">Costes de transacción</div>-->
-<!--            <div class="conf-sub">-->
-<!--              Configura el % y la comisión fija por transacción para cada método de pago.-->
-<!--            </div>-->
-
-<!--            <div-->
-<!--              class="q-mb-sm"-->
-<!--              v-for="(m, idx) in paymentMethods"-->
-<!--              :key="'m-mob-'+m.key"-->
-<!--            >-->
-<!--              <div class="row items-center q-col-gutter-sm">-->
-<!--                <div class="col-12 text-weight-bold">{{ m.name }}</div>-->
-<!--                <div class="col-6">-->
-<!--                  <q-input dense outlined type="number" min="0" step="0.1" v-model.number="m.percent" suffix="%" />-->
-<!--                </div>-->
-<!--                <div class="col-6">-->
-<!--                  <q-input dense outlined type="number" min="0" step="0.1" v-model.number="m.fixed" prefix="€" />-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <q-btn color="primary" unelevated label="Guardar" class="q-mt-sm full-width" />-->
-<!--          </q-card-section>-->
-<!--        </q-card>-->
         <q-img src="sales_cogs.png" alt="COGS y márgenes" />
       </div>
     </div>
@@ -264,7 +151,7 @@ export default {
 /* Grid principal */
 .grid{
   display:grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 300px 1fr;
   gap: 28px;
 }
 

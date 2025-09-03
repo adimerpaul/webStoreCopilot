@@ -5,9 +5,11 @@
       <!-- CTA card -->
       <div class="cta-card">
         <div class="brand row items-center justify-center q-gutter-sm">
-          <q-img src="/logo.svg" width="40px" class="logo" contain />
+          <q-img src="/logo.svg" width="50px" class="logo" contain />
           <div class="brand-name">Store<span class="accent-bold">Copilot</span></div>
         </div>
+        <br>
+        <br>
 
         <h3 class="cta-title">
           ¿Quieres ver <span class="accent">tu tienda</span><br class="br-md" />
@@ -166,7 +168,7 @@ export default {
     border-radius: 16px;
   }
   .cta-title{ font-size: 20px; }
-  .brand-name{ font-size: 16px; }
+  .brand-name{ font-size: 25px; }
   .legal-row{
     grid-template-columns: 1fr;
     text-align: center;

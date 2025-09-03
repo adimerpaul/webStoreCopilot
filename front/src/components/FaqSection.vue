@@ -19,6 +19,7 @@
             expand-separator
             :default-opened="i === 0"
             group="faq"
+            hide-expand-icon
           >
             <!-- Header personalizado -->
             <template v-slot:header="scope">
@@ -28,7 +29,7 @@
               </div>
             </template>
 
-            <div class="faq-a">
+            <div class="faq-a" style="padding: 0 14px 14px 14px;">
               <p v-for="(p, j) in normalize(item.a)" :key="j" class="faq-p">{{ p }}</p>
               <ul v-if="item.list && item.list.length" class="faq-ul">
                 <li v-for="(li, k) in item.list" :key="k">{{ li }}</li>
