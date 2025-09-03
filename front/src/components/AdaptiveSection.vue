@@ -38,25 +38,15 @@
 
       <div class="ops-grid q-pa-lg">
         <div class="ops-left">
-          <h4 class="ops-h4">{{ currentPanel.title }}</h4>
-          <p class="ops-p">{{ currentPanel.text }}</p>
-
-          <!-- Paginación decorativa (puntos) -->
-<!--          <div class="dots">-->
-<!--            <span-->
-<!--              v-for="(p, i) in panelsFinal"-->
-<!--              :key="'dot-'+i"-->
-<!--              class="dot"-->
-<!--              :class="{ active: slide === i }"-->
-<!--              @click="go(i)"-->
-<!--            />-->
-<!--          </div>-->
-<!--          fechas en ve de putnos-->
-
+          <h4 class="ops-h4">
+            {{ currentPanel.title }}
+          </h4>
+          <div class="ops-p" style="">
+            {{ currentPanel.text }}
+          </div>
           <div class="dots">
-<!--            <q-btn atras-->
-            <q-btn outline round dense icon="chevron_left" @click="go(slide > 0 ? slide - 1 : panelsFinal.length - 1)" />
-            <q-btn outline round dense icon="chevron_right" @click="go(slide < panelsFinal.length - 1 ? slide + 1 : 0)" />
+            <q-btn outline round dense color="purple" icon="chevron_left" @click="go(slide > 0 ? slide - 1 : panelsFinal.length - 1)" />
+            <q-btn outline round dense color="purple" icon="chevron_right" @click="go(slide < panelsFinal.length - 1 ? slide + 1 : 0)" />
           </div>
         </div>
 

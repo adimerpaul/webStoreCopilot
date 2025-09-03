@@ -1,7 +1,7 @@
 <template>
   <div class="hero-container">
     <!-- Texto -->
-    <div class="hero-left">
+    <div class="hero-left" style="padding: 0 70px 0 70px">
       <h1 class="hero-title">
         Datos para el control<br />
         total del <span class="highlight">crecimiento de tu</span><br />
@@ -65,7 +65,7 @@ export default { name: 'HeroSection' }
   line-height: 1.08;
   color: #1b1b22;
   font-weight: 800;
-  font-size: 52px;
+  font-size: 45px;
 }
 .highlight{ color: #7b66ff; }
 .hero-sub{
